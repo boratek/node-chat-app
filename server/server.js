@@ -21,6 +21,10 @@ io.on('connection', (socket) => {
     createdAt: 123
   });
 
+  socket.on('createEmail', (newEmail) => {
+    console.log('createEmail', newEmail);
+  });
+
   socket.on('disconnect', () => {
     console.log('User was disconnected');
   });
