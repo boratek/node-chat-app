@@ -28,7 +28,7 @@ io.on('connection', (socket) => {
   // socket.broadcast.emit from Admin text New user joined
   socket.broadcast.emit('newMessage', generateMessage('Admin', 'New user joined'));
 
-  socket.on('createMessage', (newMessage) => {
+  socket.on('createMessage', (newMessage, callback) => {
     console.log('Chat new message:', newMessage);
     // emit to all connections
     // io.emit('newMessage', {
@@ -37,7 +37,8 @@ io.on('connection', (socket) => {
     //   createdAt: new Date().getTime()
     // });
 
-    socket.broadcast.emit('newMessage', generateMessage(newMessage.from, newMessage.text));
+    io.emit('newMessage', generateMessage(newMessage.from, newMessage.text));
+    callback('This is from the server');
   });
 });
 
