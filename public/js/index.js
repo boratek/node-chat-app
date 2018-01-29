@@ -23,3 +23,14 @@ socket.emit('createMessage', {
 }, function (msg) {
   console.log('Works!', msg);
 });
+
+jQuery('#message-form').on('submit', function (e) {
+  console.log('submit works');
+  socket.emit('createMessage', {
+    from: 'User',
+    text: jQuery('[name=message]').val() // to find element with name "message"
+  }, function (msg) {
+    console.log('Works in form submit!', msg);
+  });
+  e.preventDefault();
+});
