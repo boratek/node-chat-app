@@ -40,7 +40,13 @@ io.on('connection', (socket) => {
     io.emit('newMessage', generateMessage(newMessage.from, newMessage.text));
     callback('This is from the server');
   });
+
+  socket.on('createLocationMessage', (coords) => {
+    io.emit('newMessage', generateMessage('Admin', `${coords.latitude}, ${coords.longitude}`));
+  });
 });
+
+
 
 server.listen(port, () => {
   console.log(`Server is up on ${port}`);
