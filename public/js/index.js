@@ -52,12 +52,16 @@ locationButton.on('click', function () {
     return alert('Geolocation is not supported by your browser');
   }
 
+  locationButton.attr('disabled', 'disabled').text('Sending location...');
+
   navigator.geolocation.getCurrentPosition(function (position) {
     socket.emit('createLocationMessage', {
+      locationButton.removeAttr('disabled').text('Send location');
       latitude: position.coords.latitude,
       longitude: position.coords.longitude
     })
   }, function () {
+    locationButton.removeAttr('disabled').text('Send location');
     alert('Unable to fetch the location');
   });
 });
