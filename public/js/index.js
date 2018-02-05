@@ -34,11 +34,14 @@ socket.on('newLocationMessage', function (message) {
 
 jQuery('#message-form').on('submit', function (e) {
   console.log('submit works');
+
+  var messageTextbox = jQuery('[name=message]');
+
   socket.emit('createMessage', {
     from: 'User',
-    text: jQuery('[name=message]').val() // to find element with name "message"
+    text: messageTextbox.val() // to find element with name "message"
   }, function (msg) {
-    console.log('Works in form submit!', msg);
+    messageTextbox.val('');
   });
   e.preventDefault();
 });
