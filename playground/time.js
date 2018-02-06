@@ -5,5 +5,13 @@ const moment = require('moment');
 1000
 
 var date = moment();
-console.log(date.format('MMM'));
-console.log(date.format('MMM YYYY'));
+// console.log(date.format('MMM'));
+// date.add(1, 'day').subtract(2, 'months');
+// console.log(date.format('MMM Do, YYYY'));
+
+
+// HH:mm am/pm
+// 6:01 am
+
+
+console.log(date.format('h:mm a'));
