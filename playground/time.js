@@ -13,5 +13,12 @@ var date = moment();
 // HH:mm am/pm
 // 6:01 am
 
+var someTimestamp = moment().valueOf();
+console.log(someTimestamp);
+var date = moment(someTimestamp);
+console.log(date.format('h:mm a'));
 
+
+var createdAt = 1234;
+var date = moment(createdAt);
 console.log(date.format('h:mm a'));
