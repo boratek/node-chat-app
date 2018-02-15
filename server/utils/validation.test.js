@@ -19,7 +19,7 @@ var {isRealString} = require('./validation');
     });
 
     it('should allow string with non-white characters', () => {
-      var result = isRealString('sgfse3$^#$U%HERTJFGNBXDS');
+      var result = isRealString('  Bart    ');
       expect(result).toBe(true);
     });
   });
