@@ -19,7 +19,7 @@ describe('generateMessage', () => {
     // expect(message).toInclude({from, text});
 
     // assert createdAt is a number
-    expect(typeof message.createdAt).toBe('number ');
+    expect(typeof message.createdAt).toBe('number');
   });
 });
 
