@@ -55,7 +55,6 @@ io.on('connection', (socket) => {
 
     if (user && isRealString(newMessage.text)) {
       io.to(user.room).emit('newMessage', generateMessage(user.name, newMessage.text));
-      io.to(user.room).emit('newMessage', generateMessage('Admin', `${user.name} has just left the room.`));
     }
 
     callback();
